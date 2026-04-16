@@ -4,6 +4,7 @@
 package proyecto;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * 
@@ -14,6 +15,25 @@ public class CAlumno {
 	public String nombre;
 	public String direccion;
 	public ArrayList<CAsignatura> lstAsignatura;
+	
+	public CAlumno(String dni, String nombre, String direccion) {
+		this.dni = dni;
+		this.nombre = nombre;
+		this.direccion = direccion;
+		lstAsignatura = new ArrayList<CAsignatura>(10);
+	}
+	
+		
+	//////////////////
+	/// CONSTRUCTOR COPIA
+	///////////////////
+		
+	/**
+	 * @param dni
+	 * @param nombre
+	 * @param direccion
+	 */
+	
 	/**
 	 * @return the dni
 	 */
@@ -99,4 +119,37 @@ public class CAlumno {
 		int num= lstAsignatura.size();
 		return num;
 	}
+	
+	/**
+	 * devuelve la nota media del alumno
+	 * @return
+	 */
+	public double obtenerNotaMedia() {
+		int sumNotas=0;
+		
+		Iterator<CAsignatura> itAsignatura = lstAsignatura.iterator();
+		
+		while (itAsignatura.hasNext()) {
+			CAsignatura cAs = itAsignatura.next();
+			sumNotas = sumNotas + cAs.getNota();
+		}
+		
+		double average = sumNotas / (lstAsignatura.size());
+		return average;
+	}
+
+
+	@Override
+	public String toString() {
+		return "CAlumno [Dni:" + dni + ", Nombre:" + nombre + ", Direccion:" + direccion + ", numAsig()=" + numAsig() + " \n," imprimirNotas() + "\n, Nota media: " + obtenerNotaMedia() + "]";
+	}
+	
+	public void imprimirNotas() {
+		Iterator<CAsignatura> itAsignatura = lstAsignatura.iterator();
+		while (itAsignatura.hasNext()) {
+			CAsignatura cAs = itAsignatura.next();
+			System.out.println(cAs.toString());
+		}
+	}
+	
 }

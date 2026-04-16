@@ -15,6 +15,11 @@ public class CAsignatura {
 	public CAsignatura() {
 		
 	}
+	
+	//////////////////
+	/// CONSTRUCTOR COPIA
+	///////////////////
+
 
 	/** constructor con argumento nombre
 	 * @param nombre
@@ -55,6 +60,12 @@ public class CAsignatura {
 			this.nota = nota;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return  nombre + ":" + nota;
+	}
+	
 	
 	
 }
