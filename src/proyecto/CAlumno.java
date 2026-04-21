@@ -16,6 +16,11 @@ public class CAlumno {
 	public String direccion;
 	public ArrayList<CAsignatura> lstAsignatura;
 	
+	
+	public CAlumno() {
+		
+	}
+	
 	public CAlumno(String dni, String nombre, String direccion) {
 		this.dni = dni;
 		this.nombre = nombre;
@@ -141,7 +146,7 @@ public class CAlumno {
 
 	@Override
 	public String toString() {
-		return "CAlumno [Dni:" + dni + ", Nombre:" + nombre + ", Direccion:" + direccion + ", numAsig()=" + numAsig() + " \n," imprimirNotas() + "\n, Nota media: " + obtenerNotaMedia() + "]";
+		return "CAlumno:  \n[Dni:" + dni + ", Nombre:" + nombre + ", Direccion:" + direccion + ", numAsig()=" + numAsig() + " \n notas:" + imprimirNotas() + "\n, Nota media: " + obtenerNotaMedia() + "]";
 	}
 	
 	public void imprimirNotas() {

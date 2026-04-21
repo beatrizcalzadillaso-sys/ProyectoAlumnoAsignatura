@@ -56,6 +56,9 @@ public class CAsignatura {
 		if (nota<1) {
 			this.nota=1;
 		}
+		else if (nota>10) {
+			this.nota=10;
+		}
 		else {
 			this.nota = nota;
 		}
