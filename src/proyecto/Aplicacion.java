@@ -13,6 +13,8 @@ public class Aplicacion {
 
 	public static Scanner teclado = new Scanner(System.in);
 	
+	public CGrupo grupo = new CGrupo(Grupo.DAM);
+	
 	/**
 	 * @param args
 	 */
@@ -45,9 +47,16 @@ public class Aplicacion {
 			
 			estudiante.annadirAsignatura(asig);
 			cantAsig--;
+		
+		grupo.annadirAlumno(estudiante);
 		}
+		
+		
 	}
 
+	public void BajaAlumno() {
+		
+	}
 	
 	
 }

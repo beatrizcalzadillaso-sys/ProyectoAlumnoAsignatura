@@ -4,13 +4,14 @@
 package proyecto;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * 
  */
 public class CGrupo {
 	
-	private String  grupo;
+	private Grupo grupo;
 	private ArrayList<CAlumno> lstAlumnos;
 	
 
@@ -18,7 +19,7 @@ public class CGrupo {
 	 * Constructor con grupo y lista de alumnos con tamaño fijado
 	 * @param grupo
 	 */
-	public CGrupo (String grupo){
+	public CGrupo (Grupo grupo){
 		this.grupo = grupo;
 		lstAlumnos = new ArrayList<CAlumno>(30);
 	}
@@ -40,5 +41,23 @@ public class CGrupo {
 		int numero = 0;
 		numero = lstAlumnos.size();
 		return numero;
+	}
+	
+	public void eliminarAlumno(String nombre) {
+		boolean match = false;
+		
+		Iterator<CAlumno> itAlumno = lstAlumnos.iterator();
+		if(!lstAlumnos.isEmpty()) {
+			while(itAlumno.hasNext() && match == false) {   //  ESTAN CORRECTAS EN ESE ORDEN
+				CAlumno alum = itAlumno.next();
+				if(alum.getNombre().equals(nombre)){
+					match=true;
+				}
+			}
+		}
+		else {
+			System.out.println("La lista de alumnos esta vacia");
+		}
+		
 	}
 }
